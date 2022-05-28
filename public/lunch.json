@@ -1,0 +1,44 @@
+[
+  {
+    "_id": 1,
+    "name": "Healthy Meal Plan",
+    "img": "https://i.ibb.co/Y7k2xfF/lunch6.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 35.99
+  },
+  {
+    "_id": 2,
+    "name": "Fried Chiken Bento",
+    "img": "https://i.ibb.co/jkpG0GH/lunch5.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 29.55
+  },
+  {
+    "_id": 3,
+    "name": "Tarragon-Rubbed-Salmon",
+    "img": "https://i.ibb.co/FsBb0Cs/lunch3.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 27.99
+  },
+  {
+    "_id": 4,
+    "name": "Indian Lunch",
+    "img": "https://i.ibb.co/DrRCX04/lunch4.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 24.99
+  },
+  {
+    "_id": 5,
+    "name": "Beef Steak",
+    "img": "https://i.ibb.co/JntNzdb/lunch1.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 18.99
+  },
+  {
+    "_id": 6,
+    "name": "Honey-Soy-Glazed Salmon with Peppers",
+    "img": "https://i.ibb.co/n120jd8/lunch2.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 17.49
+  }
+]
