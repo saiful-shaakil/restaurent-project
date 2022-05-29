@@ -7,6 +7,7 @@ import Lunch from "./Components/HomePage/Lunch";
 import Dinner from "./Components/HomePage/Dinner";
 import Login from "./Components/User/Login";
 import Registration from "./Components/User/Registration";
+import NotFound from "./Components/SharedComponents/NotFoundPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           path="/registration"
           element={<Registration></Registration>}
         ></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />
     </div>
