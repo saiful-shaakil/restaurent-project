@@ -11,7 +11,7 @@ const Foods = () => {
         </h1>
         <div className="flex justify-center gap-5 text-2xl">
           <CustomLink to="/breakfast">Breakfast</CustomLink>
-          <CustomLink to="/lunch">Lunch</CustomLink>
+          <CustomLink to="/">Lunch</CustomLink>
           <CustomLink to="/dinner">Dinner</CustomLink>
         </div>
       </div>

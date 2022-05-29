@@ -13,8 +13,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<LandingPage></LandingPage>}>
-          \<Route path="/breakfast" element={<Breakfast></Breakfast>}></Route>
-          <Route path="/lunch" element={<Lunch></Lunch>}></Route>
+          <Route path="/breakfast" element={<Breakfast></Breakfast>}></Route>
+          <Route index element={<Lunch></Lunch>}></Route>
           <Route path="/dinner" element={<Dinner></Dinner>}></Route>
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>

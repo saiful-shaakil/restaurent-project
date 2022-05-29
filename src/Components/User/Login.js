@@ -1,16 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
 import logo from "../../assets/images/logo2.png";
 import { useForm } from "react-hook-form";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data) {
+      const email = data.email;
+      const pass = data.password;
+      signInWithEmailAndPassword(email, pass);
+    }
+  };
+  if (user) {
+    navigate("/");
+  }
   return (
     <div
       style={{
@@ -60,7 +74,7 @@ const Login = () => {
         </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="space-y-8 ng-untouched ng-pristine ng-valid"
+          className="space-y-2 ng-untouched ng-pristine ng-valid"
         >
           <input
             type="email"
@@ -86,7 +100,7 @@ const Login = () => {
             type="password"
             name="password"
             id="password"
-            placeholder="*****"
+            placeholder="Enter your password"
             {...register("password", {
               required: {
                 value: true,
@@ -109,7 +123,7 @@ const Login = () => {
           <input
             value="Sign In"
             type="submit"
-            className="w-full btn btn-primary px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900"
+            className="w-full btn btn-primary text-white px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900"
           ></input>
         </form>
         <p className="text-sm text-center mt-3 dark:text-gray-400">

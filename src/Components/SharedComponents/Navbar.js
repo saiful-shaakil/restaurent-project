@@ -3,8 +3,12 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
+  const [user, loading] = useAuthState(auth);
   const menu = (
     <>
       <Link
@@ -17,12 +21,29 @@ const Navbar = () => {
         Home
       </Link>
 
-      <Link
-        to="/login"
-        className="text-xl 2xl:text-2xl text-black font-popins btn-primary btn-sm rounded-lg"
-      >
-        Login
-      </Link>
+      {user ? (
+        <Link
+          to="/my-profile"
+          className="text-xl 2xl:text-2xl text-black font-popins"
+        >
+          {user.displayName}
+        </Link>
+      ) : (
+        <Link
+          to="/login"
+          className="text-xl 2xl:text-2xl text-black font-popins btn-primary btn-sm rounded-lg"
+        >
+          Login
+        </Link>
+      )}
+      {user && (
+        <button
+          onClick={() => signOut(auth)}
+          className="text-xl 2xl:text-2xl text-black font-popins ml-5"
+        >
+          Sign Out
+        </button>
+      )}
     </>
   );
   return (

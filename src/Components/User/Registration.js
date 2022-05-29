@@ -33,11 +33,11 @@ const Registration = () => {
         toast.error("Password must be matched.");
       }
     }
-    if (user) {
-      navigate("/");
-      console.log(user);
-    }
   };
+  if (user) {
+    navigate("/");
+    console.log(user);
+  }
   return (
     <div
       style={{
@@ -118,7 +118,7 @@ const Registration = () => {
               </label>
               <input
                 type="password"
-                class="block border border-grey-light w-full p-3 rounded mt-4"
+                class="block border border-grey-light w-full p-3 rounded mt-4 mb-4"
                 name="confirm_password"
                 id="confpass"
                 placeholder="Confirm Password"
