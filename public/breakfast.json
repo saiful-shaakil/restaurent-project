@@ -1,0 +1,44 @@
+[
+  {
+    "_id": 1,
+    "name": "Bagel & Cream Cheese",
+    "img": "https://i.ibb.co/HYzGx92/breakfast4.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 5.99
+  },
+  {
+    "_id": 2,
+    "name": "Eggs Benedict",
+    "img": "https://i.ibb.co/N2P97Sn/breakfast1.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 9.55
+  },
+  {
+    "_id": 3,
+    "name": "Breakfast Sandwich",
+    "img": "https://i.ibb.co/hHTg9J3/breakfast2.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 7.99
+  },
+  {
+    "_id": 4,
+    "name": "Baked Chicken",
+    "img": "https://i.ibb.co/kg3qt52/breakfast3.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 4.99
+  },
+  {
+    "_id": 5,
+    "name": "Toast Croissant Fried Egg",
+    "img": "https://i.ibb.co/1ZJCYn7/breakfast6.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 8.99
+  },
+  {
+    "_id": 6,
+    "name": "Fried Egg & Toast Bunch",
+    "img": "https://i.ibb.co/kSBWcFQ/breakfast5.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 7.49
+  }
+]

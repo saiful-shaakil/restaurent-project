@@ -40,7 +40,7 @@ const Banner = () => {
               </fieldset>
             </div>
           </p>
-          <button class="btn btn-primary">Download App</button>
+          <button class="btn btn-primary">Order Now</button>
         </div>
       </div>
     </div>
