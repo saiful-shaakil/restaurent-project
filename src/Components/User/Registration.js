@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
 import logo from "../../assets/images/logo2.png";
 import {
@@ -11,6 +11,8 @@ import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 
 const Registration = () => {
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -35,8 +37,7 @@ const Registration = () => {
     }
   };
   if (user) {
-    navigate("/");
-    console.log(user);
+    navigate(from, { replace: true });
   }
   return (
     <div
