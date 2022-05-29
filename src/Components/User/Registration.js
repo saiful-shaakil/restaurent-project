@@ -1,9 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
 import logo from "../../assets/images/logo2.png";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Registration = () => {
+  const navigate = useNavigate();
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, errorofUpdate] = useUpdateProfile(auth);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = async (data) => {
+    if (data) {
+      const name = data.name;
+      const email = data.email;
+      const password = data.password;
+      const confirmPassword = data.confpass;
+      if (password === confirmPassword) {
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+      } else {
+        toast.error("Password must be matched.");
+      }
+    }
+    if (user) {
+      navigate("/");
+      console.log(user);
+    }
+  };
   return (
     <div
       style={{
@@ -19,39 +53,96 @@ const Registration = () => {
             <h1 class="mb-8 text-3xl flex justify-center">
               <img className="w-60" src={logo} alt="" />
             </h1>
-            <input
-              type="text"
-              class="block border border-grey-light w-full p-3 rounded mb-4"
-              name="fullname"
-              placeholder="Full Name"
-            />
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                type="text"
+                class="block border border-grey-light w-full p-3 rounded"
+                name="fullname"
+                id="name"
+                placeholder="Full Name"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name must be included",
+                  },
+                })}
+              />
+              <label htmlFor="name">
+                {errors.name?.type === "required" && (
+                  <span className="label-text-alt text-red-800">
+                    {errors.name.message}
+                  </span>
+                )}
+              </label>
 
-            <input
-              type="text"
-              class="block border border-grey-light w-full p-3 rounded mb-4"
-              name="email"
-              placeholder="Email"
-            />
+              <input
+                type="text"
+                class="block border border-grey-light w-full p-3 rounded mt-4"
+                name="email"
+                id="email"
+                placeholder="Email"
+                {...register("email", {
+                  required: {
+                    value: true,
+                    message: "Email must be valid",
+                  },
+                })}
+              />
+              <label htmlFor="email">
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-800">
+                    {errors.email.message}
+                  </span>
+                )}
+              </label>
 
-            <input
-              type="password"
-              class="block border border-grey-light w-full p-3 rounded mb-4"
-              name="password"
-              placeholder="Password"
-            />
-            <input
-              type="password"
-              class="block border border-grey-light w-full p-3 rounded mb-4"
-              name="confirm_password"
-              placeholder="Confirm Password"
-            />
+              <input
+                type="password"
+                class="block border border-grey-light w-full p-3 rounded mt-4"
+                name="password"
+                id="password"
+                placeholder="Password"
+                {...register("password", {
+                  required: {
+                    value: true,
+                    message: "Password must be included",
+                  },
+                })}
+              />
+              <label htmlFor="password">
+                {errors.password?.type === "required" && (
+                  <span className="label-text-alt text-red-800">
+                    {errors.password.message}
+                  </span>
+                )}
+              </label>
+              <input
+                type="password"
+                class="block border border-grey-light w-full p-3 rounded mt-4"
+                name="confirm_password"
+                id="confpass"
+                placeholder="Confirm Password"
+                {...register("confpass", {
+                  required: {
+                    value: true,
+                    message: "Confirm password must be matched",
+                  },
+                })}
+              />
+              <label htmlFor="email">
+                {errors.confpass?.type === "required" && (
+                  <span className="label-text-alt text-red-800">
+                    {errors.confpass.message}
+                  </span>
+                )}
+              </label>
 
-            <button
-              type="submit"
-              class="w-full btn btn-primary text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
-            >
-              Create Account
-            </button>
+              <input
+                type="submit"
+                value="Create account"
+                class="w-full btn btn-primary text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+              ></input>
+            </form>
             <p className="text-sm text-center mt-3 dark:text-gray-400">
               Already have an account? &nbsp;
               <Link

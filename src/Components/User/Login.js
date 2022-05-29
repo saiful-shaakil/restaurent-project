@@ -2,8 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
 import logo from "../../assets/images/logo2.png";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
   return (
     <div
       style={{
@@ -52,51 +59,58 @@ const Login = () => {
           <hr className="w-full dark:text-gray-400" />
         </div>
         <form
-          novalidate=""
-          action=""
+          onSubmit={handleSubmit(onSubmit)}
           className="space-y-8 ng-untouched ng-pristine ng-valid"
         >
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <label for="email" className="block text-sm">
-                Email address
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="leroy@jenkins.com"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
-              />
-            </div>
-            <div className="space-y-2">
-              <div className="flex justify-between">
-                <label for="password" className="text-sm">
-                  Password
-                </label>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="text-xs hover:underline dark:text-gray-400"
-                >
-                  Forgot password?
-                </a>
-              </div>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="*****"
-                className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
-              />
-            </div>
-          </div>
-          <button
-            type="button"
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email address"
+            {...register("email", {
+              required: {
+                value: true,
+                message: "Email must be valid",
+              },
+            })}
+            className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+          />
+          <label htmlFor="email">
+            {errors.email?.type === "required" && (
+              <span className="label-text-alt text-red-800">
+                {errors.email.message}
+              </span>
+            )}
+          </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="*****"
+            {...register("password", {
+              required: {
+                value: true,
+                message: "Password is Required",
+              },
+              minLength: {
+                value: 6,
+                message: "Must be 6 characters or longer",
+              },
+            })}
+            className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"
+          />
+          <label htmlFor="email">
+            {errors.password?.type === "required" && (
+              <span className="label-text-alt text-red-800">
+                {errors.password.message}
+              </span>
+            )}
+          </label>
+          <input
+            value="Sign In"
+            type="submit"
             className="w-full btn btn-primary px-8 py-3 font-semibold rounded-md dark:bg-violet-400 dark:text-gray-900"
-          >
-            Sign in
-          </button>
+          ></input>
         </form>
         <p className="text-sm text-center mt-3 dark:text-gray-400">
           Don't have account? &nbsp;
