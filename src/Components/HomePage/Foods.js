@@ -4,11 +4,16 @@ import CustomLink from "../SharedComponents/CustomLinks";
 
 const Foods = () => {
   return (
-    <div>
+    <div className="mt-20 font-popins">
       <div>
-        <CustomLink>Breakfast</CustomLink>
-        <CustomLink>Lunch</CustomLink>
-        <CustomLink>Dinner</CustomLink>
+        <h1 className="text-5xl mb-10 text-center">
+          Menu That Will Always <br /> Make You Fall In Love
+        </h1>
+        <div className="flex justify-center gap-5 text-2xl">
+          <CustomLink to="/breakfast">Breakfast</CustomLink>
+          <CustomLink to="/lunch">Lunch</CustomLink>
+          <CustomLink to="/dinner">Dinner</CustomLink>
+        </div>
       </div>
       <div>
         <Outlet />

@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../HomePage/Banner";
+import Foods from "../HomePage/Foods";
 import MultipleServices from "../HomePage/MultipleServices";
 import PopularChoices from "../HomePage/PopularChoices";
 import Navbar from "../SharedComponents/Navbar";
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <Banner></Banner>
       <PopularChoices></PopularChoices>
       <MultipleServices></MultipleServices>
+      <Foods></Foods>
     </div>
   );
 };
