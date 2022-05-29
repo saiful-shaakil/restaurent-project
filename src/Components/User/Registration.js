@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
+import logo from "../../assets/images/logo2.png";
 
 const Registration = () => {
   return (
@@ -15,16 +16,9 @@ const Registration = () => {
       <div class="bg-grey-lightershadow min-h-screen flex flex-col">
         <div class="container max-w-sm  mx-auto flex-1 flex flex-col items-center justify-center px-2">
           <div class=" px-6 py-8 rounded shadow-md text-black w-full">
-            <h1 class="mb-2 text-3xl text-center">Sign up</h1>
-            <div class="text-grey-dark mt-6 text-center mb-8">
-              Already have an account? &nbsp;
-              <Link
-                to="/login"
-                class="no-underline border-b border-blue text-blue"
-              >
-                Log in
-              </Link>
-            </div>
+            <h1 class="mb-8 text-3xl flex justify-center">
+              <img className="w-60" src={logo} alt="" />
+            </h1>
             <input
               type="text"
               class="block border border-grey-light w-full p-3 rounded mb-4"
@@ -58,6 +52,17 @@ const Registration = () => {
             >
               Create Account
             </button>
+            <p className="text-sm text-center mt-3 dark:text-gray-400">
+              Already have an account? &nbsp;
+              <Link
+                to="/login"
+                href="#"
+                rel="noopener noreferrer"
+                className="focus:underline underline"
+              >
+                Sign in
+              </Link>
+            </p>
 
             <div class="text-center text-sm text-grey-dark mt-4">
               By signing up, you agree to the &nbsp;

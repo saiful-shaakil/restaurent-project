@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
+import logo from "../../assets/images/logo2.png";
 
 const Login = () => {
   return (
@@ -13,21 +14,11 @@ const Login = () => {
       }}
       className="flex items-center justify-center pt-20"
     >
-      <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
-        <h2 className="mb-3 text-3xl font-semibold text-center">
-          Login to your account
+      <div className="w-full max-w-md p-4 mb-20 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
+        <h2 className="mb-3 text-3xl font-semibold flex justify-center">
+          <img className="w-60" src={logo} alt="" />
         </h2>
-        <p className="text-sm text-center dark:text-gray-400">
-          Don't have account? &nbsp;
-          <Link
-            to="/registration"
-            href="#"
-            rel="noopener noreferrer"
-            className="focus:underline hover:underline"
-          >
-            Sign up
-          </Link>
-        </p>
+
         <div className="my-6 space-y-4">
           <button
             aria-label="Login with Google"
@@ -107,6 +98,17 @@ const Login = () => {
             Sign in
           </button>
         </form>
+        <p className="text-sm text-center mt-3 dark:text-gray-400">
+          Don't have account? &nbsp;
+          <Link
+            to="/registration"
+            href="#"
+            rel="noopener noreferrer"
+            className="focus:underline underline"
+          >
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   );
