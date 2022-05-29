@@ -17,7 +17,10 @@ const Navbar = () => {
         Home
       </Link>
 
-      <Link to="/about" className="text-xl 2xl:text-2xl text-black font-popins">
+      <Link
+        to="/login"
+        className="text-xl 2xl:text-2xl text-black font-popins btn-primary btn-sm rounded-lg"
+      >
         Login
       </Link>
     </>

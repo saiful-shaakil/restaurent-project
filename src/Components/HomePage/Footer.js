@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex">
           <div className="flex-1">
             <img className="logo w-[200px]" src={Logo} alt="" />
-            <div className="copy">&copy; Red Onion Restaurent</div>
+            <div className="mt-6">&copy; Red Onion Restaurent</div>
           </div>
           <div className="flex">
             <div className="mr-20">
