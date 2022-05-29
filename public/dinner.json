@@ -1,0 +1,44 @@
+[
+  {
+    "_id": 1,
+    "name": "Salmon with Grapefruit & Lenti Salad",
+    "img": "https://i.ibb.co/YkG21SJ/dinner6.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 31.99
+  },
+  {
+    "_id": 2,
+    "name": "Lemony Salmon Piccata",
+    "img": "https://i.ibb.co/bvQNsdC/dinner2.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 26.55
+  },
+  {
+    "_id": 3,
+    "name": "Pork Tenderloin with Quinoa Pilaf",
+    "img": "https://i.ibb.co/Vx840wR/dinner5.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 23.99
+  },
+  {
+    "_id": 4,
+    "name": "French Fries with Cheese",
+    "img": "https://i.ibb.co/HY0YsSX/dinner4.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 21.99
+  },
+  {
+    "_id": 5,
+    "name": "Garlic Butter Baked Salmon",
+    "img": "https://i.ibb.co/9Nh6ZbP/dinner3.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 28.99
+  },
+  {
+    "_id": 6,
+    "name": "Baked Chicken",
+    "img": "https://i.ibb.co/GJTbBP9/dinner1.png",
+    "quote": "People who love to eat are always the best people",
+    "price": 12.49
+  }
+]
