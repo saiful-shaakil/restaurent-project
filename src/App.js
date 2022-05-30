@@ -8,6 +8,8 @@ import Dinner from "./Components/HomePage/Dinner";
 import Login from "./Components/User/Login";
 import Registration from "./Components/User/Registration";
 import NotFound from "./Components/SharedComponents/NotFoundPage";
+import PlaceOrder from "./Components/Order/PlaceOrder";
+import EachFoodDetails from "./Components/HomePage/EachFoodDetails";
 
 function App() {
   return (
@@ -22,6 +24,11 @@ function App() {
         <Route
           path="/registration"
           element={<Registration></Registration>}
+        ></Route>
+        <Route path="/cart" element={<PlaceOrder></PlaceOrder>}></Route>
+        <Route
+          path="/each"
+          element={<EachFoodDetails></EachFoodDetails>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

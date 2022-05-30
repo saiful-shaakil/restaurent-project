@@ -3,15 +3,20 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import background from "../../assets/images/bannerbackground.png";
 import logo from "../../assets/images/logo2.png";
 import { useForm } from "react-hook-form";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
 const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, userofEmail, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, userofGoogle, loadingg, errorr] =
+    useSignInWithGoogle(auth);
   const {
     register,
     handleSubmit,
@@ -24,7 +29,7 @@ const Login = () => {
       signInWithEmailAndPassword(email, pass);
     }
   };
-  if (user) {
+  if (userofEmail || userofGoogle) {
     navigate(from, { replace: true });
   }
   return (
@@ -44,6 +49,7 @@ const Login = () => {
 
         <div className="my-6 space-y-4">
           <button
+            onClick={() => signInWithGoogle()}
             aria-label="Login with Google"
             type="button"
             className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
