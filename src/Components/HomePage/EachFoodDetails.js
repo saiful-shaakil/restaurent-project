@@ -1,52 +1,42 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import food from "../../assets/images/edgar-castrejon-1SPu0KT-Ejg-unsplash.png";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 
 const EachFoodDetails = () => {
-  const [quantity, setQuantity] = useState();
+  const [food, setFood] = useState([]);
+  const { id } = useParams();
+  const [quantity, setQuantity] = useState(1);
   const [available, setAvailable] = useState();
+  useEffect(() => {
+    fetch(`http://localhost:5000/food/${id}`)
+      .then((res) => res.json())
+      .then((data) => setFood(data));
+  }, []);
   const increaseQuantity = () => {
-    const nQuantity = parseInt(quantity);
-    if (nQuantity < available) {
-      setQuantity(nQuantity + 1);
-    } else {
-      toast("You are reaching more than available quantity.");
-    }
+    setQuantity(quantity + 1);
   };
   const decreaseQuantity = () => {
-    const nQuantity = parseInt(quantity);
-    if (nQuantity > available) {
-      setQuantity(nQuantity - 1);
-    } else {
-      toast(`You have to order at least ${nQuantity} `);
+    if (quantity >= 2) {
+      setQuantity(quantity - 1);
     }
   };
   return (
     <div className="flex mt-20 justify-around px-20">
       <div>
-        <h1 className="text-4xl font-bold">Mutton Biryani</h1>
-        <p className="w-96">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos itaque
-          hic doloribus amet quae eius Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Nihil autem, illo, quia eligendi harum neque ducimus
-          ut quisquam omnis beatae ipsa iure iste? Est itaque rem maiores
-          tenetur accusamus modi ipsa tempora odit repudiandae quisquam,
-          architecto ea voluptatem sint reprehenderit eaque molestiae labore
-          culpa quaerat! Fuga voluptatem omnis architecto nisi! minima rem
-          explicabo qui, ullam voluptas ut illum exercitationem odio, nihil
-          officia? Eum, repudiandae.
-        </p>
-        <div className="flex items-center justify-between my-5 w-40">
-          <p className="text-2xl font-bold">$55</p>
+        <h1 className="text-4xl font-bold mb-5">{food.name}</h1>
+        <p className="w-96">{food.desc}</p>
+        <div className="flex items-center justify-between my-5 w-56">
+          <p className="text-2xl font-bold">${food.price}</p>
           <div className="border rounded-lg px-2 py-1">
             <button onClick={decreaseQuantity} className="text-xl">
               -
             </button>
             <input
               className="text-black  text-center w-12 mx-2"
-              value={1}
+              value={quantity}
               type="text"
               id="quantityValue"
             />
@@ -60,7 +50,7 @@ const EachFoodDetails = () => {
         </button>
       </div>
       <div>
-        <img src={food} alt="" />
+        <img className="w-[400px]" src={food.img} alt="" />
       </div>
     </div>
   );

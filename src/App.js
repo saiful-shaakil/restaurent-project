@@ -27,7 +27,7 @@ function App() {
         ></Route>
         <Route path="/cart" element={<PlaceOrder></PlaceOrder>}></Route>
         <Route
-          path="/each"
+          path="/details/:id"
           element={<EachFoodDetails></EachFoodDetails>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
