@@ -2,21 +2,27 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo2.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fas, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
-import { useSelector } from "react-redux";
+import useOrders from "../../Hooks/useOrders";
+import Loading from "./Loading";
 
 const Navbar = () => {
   const [user, loading] = useAuthState(auth);
+  const [orders] = useOrders(user);
+  const items = orders?.length;
+  if (loading) {
+    return <Loading></Loading>;
+  }
   const menu = (
     <>
       <Link to="/cart" className="text-xl 2xl:text-2xl text-black mr-8">
         <div className="relative">
           <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
           <div className="absolute top-[-10px] right-[-10px]  text-white text-sm bg-primary rounded-[50%] p-[5px]">
-            {/* {items.length} */}
+            {items}
           </div>
         </div>
       </Link>

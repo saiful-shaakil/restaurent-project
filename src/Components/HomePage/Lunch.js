@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
-import useAddToCart from "../../Hooks/AddToCart";
+import useOrders from "../../Hooks/useOrders";
+import Loading from "../SharedComponents/Loading";
 
 const Lunch = () => {
   const [user, loading] = useAuthState(auth);
   const [foods, setFoods] = useState([]);
+  const [orders] = useOrders(user);
+  console.log(orders);
   useEffect(() => {
     fetch("http://localhost:5000/lunch")
       .then((res) => res.json())
@@ -19,7 +21,7 @@ const Lunch = () => {
     if (email) {
       const order = {
         OrderMail: email,
-        name: user?.user?.displayName || "Unknown",
+        name: user?.displayName || "Unknown",
         food: product.name,
         foodImg: product.img,
         quantity: 1,
