@@ -1,6 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faShoppingCart,
+  faAngleRight,
+} from "@fortawesome/free-solid-svg-icons";
 import food from "../../assets/images/edgar-castrejon-1SPu0KT-Ejg-unsplash.png";
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
@@ -82,22 +85,39 @@ const EachFoodDetails = () => {
     }
   };
   return (
-    <div className="flex mt-20 justify-around px-20">
-      <div>
-        <h1 className="text-4xl font-bold mb-5">{food.name}</h1>
-        <p className="w-96">{food.desc}</p>
-        <div className="flex items-center justify-between my-5 w-56">
-          <p className="text-2xl font-bold">${food.price}</p>
+    <div>
+      <div className="flex mt-20 justify-around px-20">
+        <div>
+          <h1 className="text-4xl font-bold mb-5">{food.name}</h1>
+          <p className="w-96">{food.desc}</p>
+          <div className="flex items-center justify-between my-5 w-56">
+            <p className="text-2xl font-bold">${food.price}</p>
+          </div>
+          <button
+            onClick={() => addToCart(food)}
+            className="btn btn-primary btn-xl text-white"
+          >
+            <FontAwesomeIcon icon={faShoppingCart} /> &nbsp; Add
+          </button>
         </div>
-        <button
-          onClick={() => addToCart(food)}
-          className="btn btn-primary btn-xl text-white"
-        >
-          <FontAwesomeIcon icon={faShoppingCart} /> &nbsp; Add
-        </button>
+        <div>
+          <img className="w-[400px]" src={food.img} alt="" />
+        </div>
       </div>
-      <div>
-        <img className="w-[400px]" src={food.img} alt="" />
+      <div className="px-48 mt-5 flex items-center">
+        <img
+          className="w-40 h-40"
+          src="https://i.ibb.co/YkG21SJ/dinner6.png"
+          alt="Food 1"
+        />
+        <img
+          className="w-36 ml-24 h-36"
+          src="https://i.ibb.co/Y7k2xfF/lunch6.png"
+          alt="Food 2"
+        />
+        <div className="ml-16 text-2xl cursor-pointer">
+          <FontAwesomeIcon icon={faAngleRight} />
+        </div>
       </div>
     </div>
   );
