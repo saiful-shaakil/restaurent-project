@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 import useOrders from "../../Hooks/useOrders";
 import Loading from "../SharedComponents/Loading";
 
 const Lunch = () => {
+  //to navigate the user
+  const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
   const [foods, setFoods] = useState([]);
   const [orders] = useOrders(user);
-  console.log(orders);
   useEffect(() => {
     fetch("http://localhost:5000/lunch")
       .then((res) => res.json())
@@ -17,27 +19,55 @@ const Lunch = () => {
   }, []);
   //to add food in cart
   const addToCart = (product) => {
-    const email = user.email;
-    if (email) {
-      const order = {
-        OrderMail: email,
-        name: user?.displayName || "Unknown",
-        food: product.name,
-        foodImg: product.img,
-        quantity: 1,
-        price: parseFloat(product.price),
-      };
-      fetch("http://localhost:5000/orders", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(order),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
+    const exist = orders?.filter((ele) => product.name === ele.food);
+    const email = user?.email;
+    if (user) {
+      if (exist[0]) {
+        const id = exist[0]._id;
+        const quantity = exist[0].quantity;
+        const price = exist[0].price;
+        const updateData = {
+          quantity: quantity + 1,
+          price: price,
+          total: ((quantity + 1) * price).toFixed(2),
+        };
+        fetch(`http://localhost:5000/update-order/${id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+      } else {
+        const order = {
+          OrderMail: email,
+          name: user?.displayName || "Unknown",
+          food: product.name,
+          foodImg: product.img,
+          quantity: 1,
+          price: parseFloat(product.price),
+          total: parseFloat(product.price).toFixed(2),
+        };
+        fetch("http://localhost:5000/orders", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(order),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+      }
+    }
+    if (!user) {
+      navigate("/login");
+      toast("Please login first to save your cart");
     }
   };
   return (
