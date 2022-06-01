@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const EachOrder = ({ each }) => {
-  const { _id, food, foodImg, price, type } = each;
+  const { _id, food, foodImg, price, type, total } = each;
+  const [quantity, setQuantity] = useState(each.quantity);
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+  const decreaseQuantity = () => {
+    if (quantity >= 2) {
+      setQuantity(quantity - 1);
+    }
+  };
   const removeItem = (id) => {
     // dispatch(REMOVE(id));
   };
@@ -23,6 +32,33 @@ const EachOrder = ({ each }) => {
             </div>
             <div className="text-right">
               <p className="text-lg font-semibold">${price}</p>
+            </div>
+          </div>
+          {/* quantity section */}
+          <div className="flex justify-between items-center w-full pb-2 space-x-2">
+            <div className="space-y-1">
+              <p className="text-sm dark:text-gray-400">
+                <div className="border rounded-lg px-2 py-1">
+                  <button onClick={decreaseQuantity} className="text-xl">
+                    -
+                  </button>
+                  <input
+                    className="text-black  text-center w-12 mx-2"
+                    value={quantity}
+                    type="text"
+                    id="quantityValue"
+                  />
+                  <button
+                    onClick={increaseQuantity}
+                    className="text-xl text-primary"
+                  >
+                    +
+                  </button>
+                </div>
+              </p>
+            </div>
+            <div className="text-right">
+              <p className="text-lg font-semibold">${total}</p>
             </div>
           </div>
           <div className="flex text-sm divide-x">

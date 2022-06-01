@@ -4,29 +4,20 @@ import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import EachOrder from "./EachOrder";
 import Loading from "../SharedComponents/Loading";
+import useOrders from "../../Hooks/useOrders";
 
 const PlaceOrder = () => {
   const [user, loading] = useAuthState(auth);
-  const [price, setPrice] = useState(0);
-  const {
-    data: orders,
-    isLoading,
-    error,
-  } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/orders/${user?.email}`).then((res) =>
-      res.json()
-    )
-  );
+  const [total, setTotal] = useState(0);
+  const [orders] = useOrders(user);
   useEffect(() => {
-    let price = 0;
+    let total = 0;
     orders?.map((ele) => {
-      return (price = ele.price + price);
+      total = ele.total + total;
+      return total;
     });
-    setPrice(price);
+    setTotal(total);
   }, [orders]);
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
 
   return (
     <div className="flex justify-around mt-20 w-full">
@@ -40,11 +31,18 @@ const PlaceOrder = () => {
           </ul>
           <div className="space-y-1 text-right">
             <p>
-              Total amount:
-              <span className="font-semibold">${price}</span>
+              Price:&nbsp;
+              <span className="font-semibold">${total.toFixed(2)}</span>
             </p>
-            <p className="text-sm dark:text-gray-400">
-              Not including taxes and shipping costs
+            <p>
+              Shipping Cost: &nbsp;
+              <span className="font-semibold">${20}</span>
+            </p>
+            <p>
+              Total :&nbsp;
+              <span className="font-semibold">
+                ${parseFloat(total + 20).toFixed(2)}
+              </span>
             </p>
           </div>
           <div className="flex justify-end space-x-4">

@@ -21,15 +21,17 @@ const Lunch = () => {
   const addToCart = (product) => {
     const exist = orders?.filter((ele) => product.name === ele.food);
     const email = user?.email;
+    const name = product.name;
     if (user) {
       if (exist[0]) {
         const id = exist[0]._id;
-        const quantity = exist[0].quantity;
-        const price = exist[0].price;
+        const quantity = parseFloat(exist[0].quantity);
+        const price = parseFloat(exist[0].price);
+        const total = (quantity + 1) * price;
         const updateData = {
           quantity: quantity + 1,
           price: price,
-          total: ((quantity + 1) * price).toFixed(2),
+          total: total,
         };
         fetch(`http://localhost:5000/update-order/${id}`, {
           method: "PUT",
@@ -40,9 +42,10 @@ const Lunch = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            toast(`${name} added to your cart.`);
           });
       } else {
+        let total = parseFloat(product.price);
         const order = {
           OrderMail: email,
           name: user?.displayName || "Unknown",
@@ -50,7 +53,7 @@ const Lunch = () => {
           foodImg: product.img,
           quantity: 1,
           price: parseFloat(product.price),
-          total: parseFloat(product.price).toFixed(2),
+          total: total,
         };
         fetch("http://localhost:5000/orders", {
           method: "POST",
@@ -61,7 +64,7 @@ const Lunch = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            toast(`${name} added to your cart.`);
           });
       }
     }
