@@ -30,7 +30,6 @@ const Lunch = () => {
         const total = (quantity + 1) * price;
         const updateData = {
           quantity: quantity + 1,
-          price: price,
           total: total,
         };
         fetch(`http://localhost:5000/update-order/${id}`, {

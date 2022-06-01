@@ -1,15 +1,30 @@
 import React, { useState } from "react";
 
 const EachOrder = ({ each }) => {
-  const { _id, food, foodImg, price, type, total } = each;
-  const [quantity, setQuantity] = useState(each.quantity);
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+  const { _id, food, foodImg, price, type, total, quantity } = each;
+  //to increase cart's each food quantity
+  const increaseQuantity = (status) => {
+    const id = each._id;
+    const newQuantity = parseInt(quantity) + 1;
+    const newTotal = newQuantity * parseFloat(price);
+    const updateData = {
+      quantity: newQuantity,
+      total: newTotal,
+      stat: status,
+    };
+    fetch(`http://localhost:5000/update-order/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateData),
+    })
+      .then((res) => res.json())
+      .then((data) => {});
   };
-  const decreaseQuantity = () => {
-    if (quantity >= 2) {
-      setQuantity(quantity - 1);
-    }
+  //to decrease cart's each food quantity
+  const decreaseQuantity = (status) => {
+    console.log(status);
   };
   const removeItem = (id) => {
     // dispatch(REMOVE(id));
@@ -39,7 +54,10 @@ const EachOrder = ({ each }) => {
             <div className="space-y-1">
               <p className="text-sm dark:text-gray-400">
                 <div className="border rounded-lg px-2 py-1">
-                  <button onClick={decreaseQuantity} className="text-xl">
+                  <button
+                    onClick={() => decreaseQuantity(false)}
+                    className="text-xl text-primary"
+                  >
                     -
                   </button>
                   <input
@@ -49,8 +67,8 @@ const EachOrder = ({ each }) => {
                     id="quantityValue"
                   />
                   <button
-                    onClick={increaseQuantity}
-                    className="text-xl text-primary"
+                    onClick={() => increaseQuantity(true)}
+                    className="text-xl text-success"
                   >
                     +
                   </button>
@@ -58,7 +76,9 @@ const EachOrder = ({ each }) => {
               </p>
             </div>
             <div className="text-right">
-              <p className="text-lg font-semibold">${total}</p>
+              <p className="text-lg font-semibold">
+                ${parseFloat(total).toFixed(2)}
+              </p>
             </div>
           </div>
           <div className="flex text-sm divide-x">
