@@ -24,7 +24,23 @@ const EachOrder = ({ each }) => {
   };
   //to decrease cart's each food quantity
   const decreaseQuantity = (status) => {
-    console.log(status);
+    const id = each._id;
+    const newQuantity = parseInt(quantity) - 1;
+    const newTotal = newQuantity * parseFloat(price);
+    const updateData = {
+      quantity: newQuantity,
+      total: newTotal,
+      stat: status,
+    };
+    fetch(`http://localhost:5000/update-order/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateData),
+    })
+      .then((res) => res.json())
+      .then((data) => {});
   };
   const removeItem = (id) => {
     // dispatch(REMOVE(id));

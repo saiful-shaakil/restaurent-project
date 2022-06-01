@@ -17,6 +17,9 @@ const Lunch = () => {
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
+  if (loading) {
+    return <Loading></Loading>;
+  }
   //to add food in cart
   const addToCart = (product) => {
     const exist = orders?.filter((ele) => product.name === ele.food);
