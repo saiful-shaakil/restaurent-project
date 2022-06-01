@@ -8,6 +8,7 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import Loading from "../SharedComponents/Loading";
 
 const Login = () => {
   const location = useLocation();
@@ -29,6 +30,9 @@ const Login = () => {
       signInWithEmailAndPassword(email, pass);
     }
   };
+  if (loading || loadingg) {
+    return <Loading></Loading>;
+  }
   if (userofEmail || userofGoogle) {
     navigate(from, { replace: true });
   }

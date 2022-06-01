@@ -2,6 +2,7 @@
   {
     "name": "Salmon with Grapefruit & Lenti Salad",
     "desc": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as corbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide enery, maintain life, or stimulate growth. Different species of animals have different feeding behaiors that satisfy the need of their unique metabolisms, often evolved to fill a specific ecological niche within specific grographical contexts.",
+    "type": "dinner",
     "img": "https://i.ibb.co/YkG21SJ/dinner6.png",
     "quote": "People who love to eat are always the best people",
     "price": 31.99
@@ -9,6 +10,7 @@
   {
     "name": "Lemony Salmon Piccata",
     "desc": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as corbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide enery, maintain life, or stimulate growth. Different species of animals have different feeding behaiors that satisfy the need of their unique metabolisms, often evolved to fill a specific ecological niche within specific grographical contexts.",
+    "type": "dinner",
     "img": "https://i.ibb.co/bvQNsdC/dinner2.png",
     "quote": "People who love to eat are always the best people",
     "price": 26.55
@@ -16,6 +18,7 @@
   {
     "name": "Pork Tenderloin with Quinoa Pilaf",
     "desc": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as corbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide enery, maintain life, or stimulate growth. Different species of animals have different feeding behaiors that satisfy the need of their unique metabolisms, often evolved to fill a specific ecological niche within specific grographical contexts.",
+    "type": "dinner",
     "img": "https://i.ibb.co/Vx840wR/dinner5.png",
     "quote": "People who love to eat are always the best people",
     "price": 23.99
@@ -23,6 +26,7 @@
   {
     "name": "French Fries with Cheese",
     "desc": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as corbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide enery, maintain life, or stimulate growth. Different species of animals have different feeding behaiors that satisfy the need of their unique metabolisms, often evolved to fill a specific ecological niche within specific grographical contexts.",
+    "type": "dinner",
     "img": "https://i.ibb.co/HY0YsSX/dinner4.png",
     "quote": "People who love to eat are always the best people",
     "price": 21.99
@@ -30,6 +34,7 @@
   {
     "name": "Garlic Butter Baked Salmon",
     "desc": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as corbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide enery, maintain life, or stimulate growth. Different species of animals have different feeding behaiors that satisfy the need of their unique metabolisms, often evolved to fill a specific ecological niche within specific grographical contexts.",
+    "type": "dinner",
     "img": "https://i.ibb.co/9Nh6ZbP/dinner3.png",
     "quote": "People who love to eat are always the best people",
     "price": 28.99
@@ -37,6 +42,7 @@
   {
     "name": "Baked Chicken",
     "desc": "Food is any substance consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as corbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide enery, maintain life, or stimulate growth. Different species of animals have different feeding behaiors that satisfy the need of their unique metabolisms, often evolved to fill a specific ecological niche within specific grographical contexts.",
+    "type": "dinner",
     "img": "https://i.ibb.co/GJTbBP9/dinner1.png",
     "quote": "People who love to eat are always the best people",
     "price": 12.49

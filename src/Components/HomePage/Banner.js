@@ -12,14 +12,14 @@ const Banner = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      class="hero min-h-screen"
+      className="hero min-h-screen"
     >
-      <div class="hero-content flex-col lg:flex-row-reverse text-center">
+      <div className="hero-content flex-col lg:flex-row-reverse text-center">
         <div>
-          <h1 class="text-5xl font-bold font-popins">
+          <h1 className="text-5xl font-bold font-popins">
             We're Always Serious About <br /> Food &amp; Delivery
           </h1>
-          <p class="py-6 font-popins text-xl">
+          <p className="py-6 font-popins text-xl">
             Best cooks and best delivery guys is always at your service. Hot
             tasty food will reach you in 60 minutes.
             {/* search fiels */}
@@ -40,7 +40,7 @@ const Banner = () => {
               </fieldset>
             </div>
           </p>
-          <button class="btn btn-primary">Order Now</button>
+          <button className="btn btn-primary">Order Now</button>
         </div>
       </div>
     </div>

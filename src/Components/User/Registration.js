@@ -9,6 +9,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
+import Loading from "../SharedComponents/Loading";
 
 const Registration = () => {
   const location = useLocation();
@@ -36,6 +37,9 @@ const Registration = () => {
       }
     }
   };
+  if (loading) {
+    return <Loading></Loading>;
+  }
   if (user) {
     navigate(from, { replace: true });
   }
@@ -48,16 +52,16 @@ const Registration = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div class="bg-grey-lightershadow min-h-screen flex flex-col">
-        <div class="container max-w-sm  mx-auto flex-1 flex flex-col items-center justify-center px-2">
-          <div class=" px-6 py-8 rounded shadow-md text-black w-full">
-            <h1 class="mb-8 text-3xl flex justify-center">
+      <div className="bg-grey-lightershadow min-h-screen flex flex-col">
+        <div className="container max-w-sm  mx-auto flex-1 flex flex-col items-center justify-center px-2">
+          <div className=" px-6 py-8 rounded shadow-md text-black w-full">
+            <h1 className="mb-8 text-3xl flex justify-center">
               <img className="w-60" src={logo} alt="" />
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
               <input
                 type="text"
-                class="block border border-grey-light w-full p-3 rounded"
+                className="block border border-grey-light w-full p-3 rounded"
                 name="fullname"
                 id="name"
                 placeholder="Full Name"
@@ -78,7 +82,7 @@ const Registration = () => {
 
               <input
                 type="text"
-                class="block border border-grey-light w-full p-3 rounded mt-4"
+                className="block border border-grey-light w-full p-3 rounded mt-4"
                 name="email"
                 id="email"
                 placeholder="Email"
@@ -99,7 +103,7 @@ const Registration = () => {
 
               <input
                 type="password"
-                class="block border border-grey-light w-full p-3 rounded mt-4"
+                className="block border border-grey-light w-full p-3 rounded mt-4"
                 name="password"
                 id="password"
                 placeholder="Password"
@@ -119,7 +123,7 @@ const Registration = () => {
               </label>
               <input
                 type="password"
-                class="block border border-grey-light w-full p-3 rounded mt-4 mb-4"
+                className="block border border-grey-light w-full p-3 rounded mt-4 mb-4"
                 name="confirm_password"
                 id="confpass"
                 placeholder="Confirm Password"
@@ -141,7 +145,7 @@ const Registration = () => {
               <input
                 type="submit"
                 value="Create account"
-                class="w-full btn btn-primary text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
+                className="w-full btn btn-primary text-center py-3 rounded bg-green text-white hover:bg-green-dark focus:outline-none my-1"
               ></input>
             </form>
             <p className="text-sm text-center mt-3 dark:text-gray-400">
@@ -156,17 +160,17 @@ const Registration = () => {
               </Link>
             </p>
 
-            <div class="text-center text-sm text-grey-dark mt-4">
+            <div className="text-center text-sm text-grey-dark mt-4">
               By signing up, you agree to the &nbsp;
               <a
-                class="no-underline border-b border-grey-dark text-grey-dark"
+                className="no-underline border-b border-grey-dark text-grey-dark"
                 href="#"
               >
                 Terms of Service
               </a>{" "}
               &nbsp; and &nbsp;
               <a
-                class="no-underline border-b border-grey-dark text-grey-dark"
+                className="no-underline border-b border-grey-dark text-grey-dark"
                 href="#"
               >
                 Privacy Policy

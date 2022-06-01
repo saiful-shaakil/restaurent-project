@@ -10,6 +10,7 @@ import Registration from "./Components/User/Registration";
 import NotFound from "./Components/SharedComponents/NotFoundPage";
 import PlaceOrder from "./Components/Order/PlaceOrder";
 import EachFoodDetails from "./Components/HomePage/EachFoodDetails";
+import Loading from "./Components/SharedComponents/Loading";
 
 function App() {
   return (
