@@ -75,7 +75,7 @@ const Lunch = () => {
     }
   };
   return (
-    <div className="grid grid-cols-3 px-40 gap-5 my-[100px]">
+    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-40 gap-5 my-[100px]">
       {foods.map((each) => (
         <div
           key={each._id}

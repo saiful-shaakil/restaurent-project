@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import ConfirmDelete from "./ConfirmDelete";
 
 const EachOrder = ({ each }) => {
   const { _id, food, foodImg, price, type, total, quantity } = each;
+  const [remove, setRemove] = useState(null);
   //to increase cart's each food quantity
   const increaseQuantity = (status) => {
     const id = each._id;
@@ -41,9 +43,6 @@ const EachOrder = ({ each }) => {
     })
       .then((res) => res.json())
       .then((data) => {});
-  };
-  const removeItem = (id) => {
-    // dispatch(REMOVE(id));
   };
   return (
     <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -98,10 +97,11 @@ const EachOrder = ({ each }) => {
             </div>
           </div>
           <div className="flex text-sm divide-x">
-            <button
-              onClick={() => removeItem(_id)}
+            <label
+              htmlFor="remove-order"
+              onClick={() => setRemove(each)}
               type="button"
-              className="flex items-center px-2 py-1 pl-0 space-x-1"
+              className="flex items-center px-2 py-1 pl-0 cursor-pointer space-x-1"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ const EachOrder = ({ each }) => {
                 <path d="M328,88V40c0-13.458-9.488-24-21.6-24H205.6C193.488,16,184,26.542,184,40V88H64v32H448V88ZM216,48h80V88H216Z"></path>
               </svg>
               <span>Remove</span>
-            </button>
+            </label>
             <button
               type="button"
               className="flex items-center px-2 py-1 space-x-1"
@@ -131,6 +131,7 @@ const EachOrder = ({ each }) => {
             </button>
           </div>
         </div>
+        {remove && <ConfirmDelete order={each}></ConfirmDelete>}
       </div>
     </li>
   );
