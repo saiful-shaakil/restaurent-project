@@ -6,10 +6,10 @@ const Foods = () => {
   return (
     <div className="mt-20 font-popins">
       <div>
-        <h1 className="text-5xl mb-10 text-center">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl mb-10 text-center">
           Menu That Will Always <br /> Make You Fall In Love
         </h1>
-        <div className="flex justify-center gap-5 text-2xl">
+        <div className="flex justify-center gap-5 text-xl md:text-2xl">
           <CustomLink to="/breakfast">Breakfast</CustomLink>
           <CustomLink to="/">Lunch</CustomLink>
           <CustomLink to="/dinner">Dinner</CustomLink>

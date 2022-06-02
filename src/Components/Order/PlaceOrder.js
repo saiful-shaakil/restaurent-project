@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useQuery } from "react-query";
 import auth from "../../firebase.init";
 import EachOrder from "./EachOrder";
-import Loading from "../SharedComponents/Loading";
 import useOrders from "../../Hooks/useOrders";
 
 const PlaceOrder = () => {
@@ -20,7 +18,7 @@ const PlaceOrder = () => {
   }, [orders]);
 
   return (
-    <div className="flex justify-around mt-20 w-full">
+    <div className="flex justify-around mt-16 w-full">
       <div>
         <div className="flex font-popins flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <h2 className="text-3xl mt-0 font-bold font-popins">Your cart:</h2>

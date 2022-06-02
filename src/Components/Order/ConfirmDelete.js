@@ -2,7 +2,7 @@ import React from "react";
 import { toast } from "react-toastify";
 
 const ConfirmDelete = ({ order }) => {
-  const { _id, food } = order;
+  const { _id } = order;
   //to delete
   const handleDelete = (id) => {
     fetch(`http://localhost:5000/remove-order/${id}`, {
@@ -15,7 +15,7 @@ const ConfirmDelete = ({ order }) => {
       <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
-            Are you sure you want to delete this product?
+            Are you sure you want to remove this item?
           </h3>
           <div className="modal-action">
             <label htmlFor="remove-order" className="btn btn-success">

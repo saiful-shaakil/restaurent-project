@@ -86,10 +86,10 @@ const EachFoodDetails = () => {
   };
   return (
     <div>
-      <div className="flex mt-20 justify-around px-20">
+      <div className="md:flex mt-16 justify-around lg:flex-row-reverse px-10">
         <div>
           <h1 className="text-4xl font-bold mb-5">{food.name}</h1>
-          <p className="w-96">{food.desc}</p>
+          <p className="">{food.desc}</p>
           <div className="flex items-center justify-between my-5 w-56">
             <p className="text-2xl font-bold">${food.price}</p>
           </div>
@@ -101,10 +101,10 @@ const EachFoodDetails = () => {
           </button>
         </div>
         <div>
-          <img className="w-[400px]" src={food.img} alt="" />
+          <img className="w-[400px] mt-10" src={food.img} alt="" />
         </div>
       </div>
-      <div className="px-48 mt-5 flex items-center">
+      <div className="px-48 hidden mt-5 items-center">
         <img
           className="w-40 h-40"
           src="https://i.ibb.co/YkG21SJ/dinner6.png"

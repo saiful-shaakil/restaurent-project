@@ -136,11 +136,13 @@ const MultipleServices = () => {
                   </span>
                 </div>
               </li>
-              <button className="btn btn-primary">About Us</button>
             </ul>
+            <div className="flex my-5 justify-center w-full">
+              <button className="btn btn-primary mt-4">About Us</button>
+            </div>
           </div>
           <div className="mt-10 lg:-mx-4 relative relative-20 lg:mt-0 lg:col-start-1">
-            <div className="relative space-y-4">
+            <div className="relative space-y-4 flex justify-center">
               <img src={chef} alt="" />
             </div>
           </div>

@@ -8,11 +8,11 @@ const MobileAppSection = () => {
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src="https://i.ibb.co/q9J7ydd/young-chef-with-mobile.jpg"
-          className="max-w-sm lg:max-w-lg rounded-lg"
+          className="max-w-[330px] md:max-w-[500px] lg:max-w-lg rounded-lg"
           alt="chef-with-mobile"
         />
         <div>
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
             It’s Now More Easy to Order by Our Mobile App
           </h1>
           <p className="py-6 lg:pr-16">

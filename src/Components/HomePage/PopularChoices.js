@@ -90,11 +90,11 @@ const PopularChoices = () => {
           reprehenderit eos accusantium asperiores.
         </p>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 md:px-40 gap-5 my-[100px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-10 lg:px-40 gap-5 my-[100px]">
         {food.map((each) => (
           <div
             key={each._id}
-            className="w-[300px] border font-popins text-center p-[20px] h-[380px] ease]"
+            className="w-[300px] lg:w-[350px] border font-popins text-center p-[20px] h-[380px] ease]"
           >
             <Link
               to={`/details/${each._id}`}

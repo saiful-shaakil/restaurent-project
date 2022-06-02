@@ -24,7 +24,7 @@ const Banner = () => {
             tasty food will reach you in 60 minutes.
             {/* search fiels */}
             <div className="flex items-center justify-center">
-              <fieldset className="w-[400px] mt-2 space-y-1 border-2 rounded-lg  dark:text-gray-100">
+              <fieldset className="w-[300px] md:w-[400px] mt-2 space-y-1 border-2 rounded-lg  dark:text-gray-100">
                 <div className="flex">
                   <input
                     type="text"
