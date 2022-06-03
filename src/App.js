@@ -10,7 +10,7 @@ import Registration from "./Components/User/Registration";
 import NotFound from "./Components/SharedComponents/NotFoundPage";
 import PlaceOrder from "./Components/Order/PlaceOrder";
 import EachFoodDetails from "./Components/HomePage/EachFoodDetails";
-import Loading from "./Components/SharedComponents/Loading";
+import OrderDetails from "./Components/Order/OrderDetails";
 
 function App() {
   return (
@@ -30,6 +30,10 @@ function App() {
         <Route
           path="/details/:id"
           element={<EachFoodDetails></EachFoodDetails>}
+        ></Route>
+        <Route
+          path="/cart/proceed-to-checkout"
+          element={<OrderDetails></OrderDetails>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

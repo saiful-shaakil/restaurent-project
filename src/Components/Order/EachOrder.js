@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import ConfirmDelete from "./ConfirmDelete";
 
 const EachOrder = ({ each }) => {
@@ -43,6 +44,10 @@ const EachOrder = ({ each }) => {
     })
       .then((res) => res.json())
       .then((data) => {});
+  };
+  //to add favourites
+  const addToFavourites = (food) => {
+    toast.success(`${food.food} is added to your favourite list.`);
   };
   return (
     <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -118,6 +123,7 @@ const EachOrder = ({ each }) => {
             </label>
             <button
               type="button"
+              onClick={() => addToFavourites(each)}
               className="flex items-center px-2 py-1 space-x-1"
             >
               <svg

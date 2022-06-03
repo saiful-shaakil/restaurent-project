@@ -7,7 +7,8 @@ const Foods = () => {
     <div className="mt-20 font-popins">
       <div>
         <h1 className="text-3xl md:text-4xl lg:text-5xl mb-10 text-center">
-          Menu That Will Always <br /> Make You Fall In Love
+          <span className="text-primary">Menu</span> That Will Always <br />{" "}
+          Make You Fall In <span className="text-primary">Love</span>
         </h1>
         <div className="flex justify-center gap-5 text-xl md:text-2xl">
           <CustomLink to="/breakfast">Breakfast</CustomLink>

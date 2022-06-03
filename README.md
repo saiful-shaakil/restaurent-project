@@ -1,3 +1,20 @@
+# Live Link of This site
+
+[Red Onion Restaurent](https://red-onion-restaurent-be03d.firebaseapp.com/)
+
+# Quick Overview
+
+- it's a restaurent website where user can order foods after login
+- fully responsive with mobile, tab and desktop
+- user will be able to add foods to his cart, increase and decrease foods amount, remove food from cart and payment via stripe
+
+# Technology used in this site
+
+- React JS
+- Node JS
+- Express JS
+- MongoDB
+
 ## Available Scripts
 
 In the project directory, you can run:

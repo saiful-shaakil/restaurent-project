@@ -86,8 +86,8 @@ const EachFoodDetails = () => {
   };
   return (
     <div>
-      <div className="md:flex mt-16 justify-around lg:flex-row-reverse px-10">
-        <div>
+      <div className="md:flex mt-16 justify-around lg:flex px-10">
+        <div className="lg:w-1/2 lg:mt-16">
           <h1 className="text-4xl font-bold mb-5">{food.name}</h1>
           <p className="">{food.desc}</p>
           <div className="flex items-center justify-between my-5 w-56">
@@ -104,7 +104,7 @@ const EachFoodDetails = () => {
           <img className="w-[400px] mt-10" src={food.img} alt="" />
         </div>
       </div>
-      <div className="px-48 hidden mt-5 items-center">
+      <div className="px-48 hidden lg:flex my-16 items-center">
         <img
           className="w-40 h-40"
           src="https://i.ibb.co/YkG21SJ/dinner6.png"

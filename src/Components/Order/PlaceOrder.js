@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import EachOrder from "./EachOrder";
 import useOrders from "../../Hooks/useOrders";
+import { Link } from "react-router-dom";
 
 const PlaceOrder = () => {
   const [user, loading] = useAuthState(auth);
@@ -18,7 +19,7 @@ const PlaceOrder = () => {
   }, [orders]);
 
   return (
-    <div className="flex justify-around mt-16 w-full">
+    <div className="flex justify-around  mt-16 w-full">
       <div>
         <div className="flex font-popins flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
           <h2 className="text-3xl mt-0 font-bold font-popins">Your cart:</h2>
@@ -44,20 +45,22 @@ const PlaceOrder = () => {
             </p>
           </div>
           <div className="flex justify-end space-x-4">
-            <button
+            <Link
+              to="/"
               type="button"
               className="px-6 py-2 border rounded-md dark:border-violet-400"
             >
-              Back
+              Back &nbsp;
               <span className="sr-only sm:not-sr-only">to shop</span>
-            </button>
-            <button
+            </Link>
+            <Link
+              to="proceed-to-checkout"
               type="button"
               className="px-6 py-2 border rounded-md dark:bg-violet-400 dark:text-gray-900 dark:border-violet-400"
             >
-              <span className="sr-only sm:not-sr-only">Continue to</span>
+              <span className="sr-only sm:not-sr-only">Continue to &nbsp;</span>
               Checkout
-            </button>
+            </Link>
           </div>
         </div>
       </div>

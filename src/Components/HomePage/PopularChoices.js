@@ -75,7 +75,7 @@ const PopularChoices = () => {
     }
   };
   return (
-    <div>
+    <div id="popular">
       <div className="mt-10 text-center">
         <h1 className="text-5xl font-popins">
           Popular Choices{" "}
