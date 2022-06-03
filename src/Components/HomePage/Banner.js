@@ -40,7 +40,7 @@ const Banner = () => {
               </fieldset>
             </div>
           </p>
-          <button className="btn btn-primary">Order Now</button>
+          <button className="btn btn-primary text-white">Order Now</button>
         </div>
       </div>
     </div>
