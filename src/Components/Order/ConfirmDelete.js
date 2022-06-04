@@ -5,7 +5,7 @@ const ConfirmDelete = ({ order }) => {
   const { _id } = order;
   //to delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/remove-order/${id}`, {
+    fetch(`https://floating-thicket-52980.herokuapp.com/remove-order/${id}`, {
       method: "DELETE",
     });
   };

@@ -15,7 +15,7 @@ const EachOrder = ({ each }) => {
       total: newTotal,
       stat: status,
     };
-    fetch(`http://localhost:5000/update-order/${id}`, {
+    fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -35,7 +35,7 @@ const EachOrder = ({ each }) => {
       total: newTotal,
       stat: status,
     };
-    fetch(`http://localhost:5000/update-order/${id}`, {
+    fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

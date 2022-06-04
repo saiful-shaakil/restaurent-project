@@ -12,7 +12,7 @@ const Breakfast = () => {
   const [orders] = useOrders(user);
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/breakfast")
+    fetch("https://floating-thicket-52980.herokuapp.com/breakfast")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
@@ -34,13 +34,16 @@ const Breakfast = () => {
           quantity: quantity + 1,
           total: total,
         };
-        fetch(`http://localhost:5000/update-order/${id}`, {
-          method: "PUT",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(updateData),
-        })
+        fetch(
+          `https://floating-thicket-52980.herokuapp.com/update-order/${id}`,
+          {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(updateData),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             toast(`${name} added to your cart.`);
@@ -56,7 +59,7 @@ const Breakfast = () => {
           price: parseFloat(product.price),
           total: total,
         };
-        fetch("http://localhost:5000/orders", {
+        fetch("https://floating-thicket-52980.herokuapp.com/orders", {
           method: "POST",
           headers: {
             "content-type": "application/json",
