@@ -41,14 +41,6 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route
-          path="/cart/proceed-to-checkout/payment"
-          element={
-            <RequireAuth>
-              <Payment></Payment>
-            </RequireAuth>
-          }
-        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer />

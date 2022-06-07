@@ -9,14 +9,19 @@ import Loading from "../SharedComponents/Loading";
 const Lunch = () => {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const [foods, setFoods] = useState([]);
   const [orders] = useOrders(user);
   useEffect(() => {
+    setIsLoading(true);
     fetch("https://floating-thicket-52980.herokuapp.com/dinner")
       .then((res) => res.json())
-      .then((data) => setFoods(data));
+      .then((data) => {
+        setFoods(data);
+        setIsLoading(false);
+      });
   }, []);
-  if (loading) {
+  if (loading || isLoading) {
     return <Loading></Loading>;
   }
   // adding food to the cart

@@ -6,17 +6,26 @@ import { toast } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useOrders from "../../Hooks/useOrders";
+import Loading from "../SharedComponents/Loading";
 
 const PopularChoices = () => {
   const [user, loading] = useAuthState(auth);
+  const [isLoading, setIsLoading] = useState(false);
   const [orders] = useOrders(user);
   const navigate = useNavigate();
   const [foods, setFoods] = useState([]);
   useEffect(() => {
+    setIsLoading(true);
     fetch("https://floating-thicket-52980.herokuapp.com/dinner")
       .then((res) => res.json())
-      .then((data) => setFoods(data));
+      .then((data) => {
+        setFoods(data);
+        setIsLoading(false);
+      });
   }, []);
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
   const food = foods.slice(0, 3);
 
   //adding food to the cart

@@ -5,11 +5,12 @@ import EachOrder from "./EachOrder";
 import useOrders from "../../Hooks/useOrders";
 import { Link } from "react-router-dom";
 import emptyCart from "../../assets/images/empty-cart-1.webp";
+import Loading from "../SharedComponents/Loading";
 
 const PlaceOrder = () => {
   const [user, loading] = useAuthState(auth);
   const [total, setTotal] = useState(0);
-  const [orders] = useOrders(user);
+  const [orders, isLoading] = useOrders(user);
   useEffect(() => {
     let total = 0;
     orders?.map((ele) => {
