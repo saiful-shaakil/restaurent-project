@@ -35,15 +35,19 @@ const EachOrder = ({ each }) => {
       total: newTotal,
       stat: status,
     };
-    fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateData),
-    })
-      .then((res) => res.json())
-      .then((data) => {});
+    if (newQuantity > 1) {
+      fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateData),
+      })
+        .then((res) => res.json())
+        .then((data) => {});
+    } else {
+      toast.error("Items cannot be negative number.");
+    }
   };
   //to add favourites
   const addToFavourites = (food) => {

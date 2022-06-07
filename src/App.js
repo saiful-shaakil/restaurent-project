@@ -11,6 +11,8 @@ import NotFound from "./Components/SharedComponents/NotFoundPage";
 import PlaceOrder from "./Components/Order/PlaceOrder";
 import EachFoodDetails from "./Components/HomePage/EachFoodDetails";
 import OrderDetails from "./Components/Order/OrderDetails";
+import Payment from "./Components/Order/Payment";
+import RequireAuth from "./Components/SharedComponents/RequireAuth";
 
 function App() {
   return (
@@ -33,7 +35,19 @@ function App() {
         ></Route>
         <Route
           path="/cart/proceed-to-checkout"
-          element={<OrderDetails></OrderDetails>}
+          element={
+            <RequireAuth>
+              <OrderDetails></OrderDetails>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/cart/proceed-to-checkout/payment"
+          element={
+            <RequireAuth>
+              <Payment></Payment>
+            </RequireAuth>
+          }
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

@@ -21,16 +21,6 @@ const PlaceOrder = () => {
 
   return (
     <div className="flex justify-around  mt-16 w-full">
-      {!orders ||
-        (orders.length === 0 && (
-          <div className="flex flex-col items-center justify-center">
-            {" "}
-            <img src={emptyCart} alt="" />{" "}
-            <Link className="btn btn-primary text-white" to="/">
-              Back to Shop
-            </Link>
-          </div>
-        ))}
       {orders.length >= 1 && (
         <div>
           <div className="flex font-popins flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-900 dark:text-gray-100">
@@ -79,6 +69,16 @@ const PlaceOrder = () => {
           </div>
         </div>
       )}
+      {!orders ||
+        (orders.length === 0 && (
+          <div className="flex flex-col items-center justify-center">
+            {" "}
+            <img src={emptyCart} alt="" />{" "}
+            <Link className="btn btn-primary text-white" to="/">
+              Back to Shop
+            </Link>
+          </div>
+        ))}
     </div>
   );
 };

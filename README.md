@@ -6,7 +6,7 @@
 
 - it's a restaurant's website where user can order foods after login
 - fully responsive with mobile, tab and desktop
-- user will be able to add foods to his cart, increase and decrease foods amount, remove food from cart and payment via stripe
+- user will be able to add foods to his cart, increase and decrease foods amount, remove food from cart and place the order
 
 # Technology used in this site
 
