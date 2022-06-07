@@ -35,7 +35,7 @@ const EachOrder = ({ each }) => {
       total: newTotal,
       stat: status,
     };
-    if (newQuantity > 1) {
+    if (newQuantity >= 1) {
       fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
         method: "PUT",
         headers: {

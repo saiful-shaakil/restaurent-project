@@ -5,10 +5,12 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import background from "../../assets/images/bannerbackground.png";
 import auth from "../../firebase.init";
+import Loading from "../SharedComponents/Loading";
 
 const OrderDetails = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
+  const [isLoading, setIsLoading] = useState(false);
   const [orders, setOrders] = useState([]);
   const {
     register,
@@ -22,6 +24,7 @@ const OrderDetails = () => {
       address: data.adress,
       email: user?.email,
     };
+    setIsLoading(true);
     fetch(`https://floating-thicket-52980.herokuapp.com/customer-details`, {
       method: "POST",
       headers: {
@@ -39,11 +42,15 @@ const OrderDetails = () => {
         )
           .then((res) => res.json())
           .then((data) => {
+            setIsLoading(false);
             navigate("/");
             toast.success("Your order is placed.");
           });
       });
   };
+  if (loading || isLoading) {
+    return <Loading></Loading>;
+  }
   return (
     <div
       style={{
