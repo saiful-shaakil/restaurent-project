@@ -21,7 +21,7 @@ const Navbar = () => {
       <Link to="/cart" className="text-xl 2xl:text-2xl text-black mr-8">
         <div className="relative">
           <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon>
-          <div className="absolute top-[-10px] right-[-10px]  text-white text-sm bg-primary rounded-[50%] p-[5px]">
+          <div className="absolute top-[-10px] right-[120px] lg:right-[-10px] text-white text-sm bg-primary rounded-[50%] p-[5px]">
             {items}
           </div>
         </div>
@@ -46,12 +46,12 @@ const Navbar = () => {
         </Link>
       )}
       {user && (
-        <button
+        <span
           onClick={() => signOut(auth)}
-          className="text-xl 2xl:text-2xl text-black font-popins ml-5"
+          className="text-xl 2xl:text-2xl cursor-pointer text-black font-popins lg:ml-5"
         >
           Sign Out
-        </button>
+        </span>
       )}
     </>
   );
@@ -77,7 +77,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-200 rounded-box "
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow w-[200px]  rounded-box "
           >
             {menu}
           </ul>

@@ -22,7 +22,7 @@ const EachFoodDetails = () => {
   const [available, setAvailable] = useState();
   //useeffect to get the details of a specific food
   useEffect(() => {
-    fetch(`https://floating-thicket-52980.herokuapp.com/food/${id}`)
+    fetch(`https://red-onion-server-wstf.onrender.com/food/${id}`)
       .then((res) => res.json())
       .then((data) => setFood(data));
   }, [food]);
@@ -44,16 +44,13 @@ const EachFoodDetails = () => {
           quantity: quantity + 1,
           total: total,
         };
-        fetch(
-          `https://floating-thicket-52980.herokuapp.com/update-order/${id}`,
-          {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updateData),
-          }
-        )
+        fetch(`https://red-onion-server-wstf.onrender.com/update-order/${id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        })
           .then((res) => res.json())
           .then((data) => {
             toast(`${name} added to your cart.`);
@@ -69,7 +66,7 @@ const EachFoodDetails = () => {
           price: parseFloat(product.price),
           total: total,
         };
-        fetch("https://floating-thicket-52980.herokuapp.com/orders", {
+        fetch("https://red-onion-server-wstf.onrender.com/orders", {
           method: "POST",
           headers: {
             "content-type": "application/json",

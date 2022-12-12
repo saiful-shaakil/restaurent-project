@@ -25,7 +25,7 @@ const OrderDetails = () => {
       email: user?.email,
     };
     setIsLoading(true);
-    fetch(`https://floating-thicket-52980.herokuapp.com/customer-details`, {
+    fetch(`https://red-onion-server-wstf.onrender.com/customer-details`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -35,7 +35,7 @@ const OrderDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         fetch(
-          `https://floating-thicket-52980.herokuapp.com/remove-cart/${user.email}`,
+          `https://red-onion-server-wstf.onrender.com/remove-cart/${user.email}`,
           {
             method: "DELETE",
           }

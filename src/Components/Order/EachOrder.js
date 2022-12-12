@@ -15,7 +15,7 @@ const EachOrder = ({ each }) => {
       total: newTotal,
       stat: status,
     };
-    fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
+    fetch(`https://red-onion-server-wstf.onrender.com/update-order/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -36,7 +36,7 @@ const EachOrder = ({ each }) => {
       stat: status,
     };
     if (newQuantity >= 1) {
-      fetch(`https://floating-thicket-52980.herokuapp.com/update-order/${id}`, {
+      fetch(`https://red-onion-server-wstf.onrender.com/update-order/${id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

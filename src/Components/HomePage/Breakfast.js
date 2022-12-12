@@ -14,7 +14,7 @@ const Breakfast = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://floating-thicket-52980.herokuapp.com/breakfast")
+    fetch("https://red-onion-server-wstf.onrender.com/breakfast")
       .then((res) => res.json())
       .then((data) => {
         setFoods(data);
@@ -39,16 +39,13 @@ const Breakfast = () => {
           quantity: quantity + 1,
           total: total,
         };
-        fetch(
-          `https://floating-thicket-52980.herokuapp.com/update-order/${id}`,
-          {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updateData),
-          }
-        )
+        fetch(`https://red-onion-server-wstf.onrender.com/update-order/${id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        })
           .then((res) => res.json())
           .then((data) => {
             toast(`${name} added to your cart.`);
@@ -64,7 +61,7 @@ const Breakfast = () => {
           price: parseFloat(product.price),
           total: total,
         };
-        fetch("https://floating-thicket-52980.herokuapp.com/orders", {
+        fetch("https://red-onion-server-wstf.onrender.com/orders", {
           method: "POST",
           headers: {
             "content-type": "application/json",
